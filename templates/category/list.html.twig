@@ -1,10 +1,16 @@
-<h1>Liste des catégories</h1>
-<ul>
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Liste des catégories</h1>
+<ul class="list-group">
     {% for category in categories %}
-        <li>
+        <li class="list-group-item">
             <a href="{{ path('category_show', {id: category.id}) }}">
                 {{ category.nameCat }}
             </a>
         </li>
     {% endfor %}
 </ul>
+{% endblock %}

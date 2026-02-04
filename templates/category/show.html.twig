@@ -1,3 +1,9 @@
-<h1>{{ category.nameCat }}</h1>
-<p>{{ category.descriptionCat }}</p>
-<a href="{{ path('categories_list') }}">Retour à la liste</a>
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.nameCat }}{% endblock %}
+
+{% block body %}
+<h1 class="mb-3">{{ category.nameCat }}</h1>
+<p class="mb-4">{{ category.descriptionCat }}</p>
+<a href="{{ path('categories_list') }}" class="btn btn-primary">Retour à la liste</a>
+{% endblock %}
