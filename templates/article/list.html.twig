@@ -1,13 +1,35 @@
-<h1>Liste des articles</h1>
-<ul>
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Liste des articles</h1>
+
+<div class="row g-3">
     {% for article in articles %}
-        <li>
-            <a href="{{ path('article_show', {id: article.id}) }}">
-                {{ article.titleArticle }}
-            </a> - Publié le : {{ article.publishedAt ? article.publishedAt|date('d/m/Y') : 'Non publié' }} - Catégories : 
-            {% for category in article.categories %}
-                {{ category.nameCat }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-        </li>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ path('article_show', { id: article.id }) }}">
+                            {{ article.titleArticle }}
+                        </a>
+                    </h5>
+
+                    <p class="text-muted mb-1">
+                        Publié le :
+                        {{ article.publishedAt ? article.publishedAt|date('d/m/Y') : 'Non publié' }}
+                    </p>
+
+                    <p class="mb-0">
+                        Catégories :
+                        {% for category in article.categories %}
+                            {{ category.nameCat }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
     {% endfor %}
-</ul>
+</div>
+{% endblock %}
