@@ -1,0 +1,15 @@
+<h1>{{ article.titleArticle }}</h1>
+<p><strong>Publié le :</strong> {{ article.publishedAt ? article.publishedAt|date('d/m/Y H:i') : 'Non publié' }}</p>
+<p><strong>Créé le :</strong> {{ article.createdAt|date('d/m/Y H:i') }}</p>
+<p><strong>Mise à jour :</strong> {{ article.updatedAt ? article.updatedAt|date('d/m/Y H:i') : 'Jamais' }}</p>
+<p><strong>Auteur :</strong> {{ article.writeBy.firstnameUser }} {{ article.writeBy.nameUser }}</p>
+<p><strong>Catégories :</strong>
+    {% for category in article.categories %}
+        {{ category.nameCat }}{% if not loop.last %}, {% endif %}
+    {% endfor %}
+</p>
+<p>{{ article.contentArticle }}</p>
+{% if article.imageArticle %}
+    <img src="{{ article.imageArticle }}" alt="Image de l'article" style="max-width:300px">
+{% endif %}
+<a href="{{ path('articles_list') }}">Retour à la liste</a>

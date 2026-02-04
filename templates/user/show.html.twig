@@ -1,0 +1,4 @@
+<h1>{{ user.firstnameUser }} {{ user.nameUser }}</h1>
+<p>Email : {{ user.emailUser }}</p>
+<p>Créé le : {{ user.createdAt|date('d/m/Y H:i') }}</p>
+<a href="{{ path('members_list') }}">Retour à la liste</a>

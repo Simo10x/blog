@@ -1,0 +1,13 @@
+<h1>Liste des articles</h1>
+<ul>
+    {% for article in articles %}
+        <li>
+            <a href="{{ path('article_show', {id: article.id}) }}">
+                {{ article.titleArticle }}
+            </a> - Publié le : {{ article.publishedAt ? article.publishedAt|date('d/m/Y') : 'Non publié' }} - Catégories : 
+            {% for category in article.categories %}
+                {{ category.nameCat }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </li>
+    {% endfor %}
+</ul>

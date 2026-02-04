@@ -1,0 +1,10 @@
+<h1>Liste des catégories</h1>
+<ul>
+    {% for category in categories %}
+        <li>
+            <a href="{{ path('category_show', {id: category.id}) }}">
+                {{ category.nameCat }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
