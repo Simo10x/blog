@@ -1,10 +1,17 @@
-<h1>Liste des membres</h1>
-<ul>
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des membres{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Liste des membres</h1>
+
+<ul class="list-group">
     {% for user in users %}
-        <li>
-            <a href="{{ path('user_show', {emailUser: user.emailUser}) }}">
+        <li class="list-group-item">
+            <a href="{{ path('user_show', { emailUser: user.emailUser }) }}">
                 {{ user.firstnameUser }} {{ user.nameUser }}
             </a>
         </li>
     {% endfor %}
 </ul>
+{% endblock %}

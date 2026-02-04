@@ -1,4 +1,23 @@
-<h1>{{ user.firstnameUser }} {{ user.nameUser }}</h1>
-<p>Email : {{ user.emailUser }}</p>
-<p>Créé le : {{ user.createdAt|date('d/m/Y H:i') }}</p>
-<a href="{{ path('members_list') }}">Retour à la liste</a>
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil utilisateur{% endblock %}
+
+{% block body %}
+<h1 class="mb-3">
+    {{ user.firstnameUser }} {{ user.nameUser }}
+</h1>
+
+<ul class="list-group mb-4">
+    <li class="list-group-item">
+        <strong>Email :</strong> {{ user.emailUser }}
+    </li>
+    <li class="list-group-item">
+        <strong>Compte créé le :</strong>
+        {{ user.createdAt|date('d/m/Y H:i') }}
+    </li>
+</ul>
+
+<a href="{{ path('members_list') }}" class="btn btn-primary">
+    Retour à la liste
+</a>
+{% endblock %}
